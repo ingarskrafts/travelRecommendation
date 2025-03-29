@@ -1,9 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
         <title>TravelBloom</title>
+        <style>
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            
+            nav{
+                display: flex;
+                padding: 10px;
+                margin-right: 0;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #1d2a29;
+            }
+
+            h1{
+                color: white;
+                font-style: italic;
+            }
+
+            ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+            }
+
+            li{
+                margin: 10px;
+            }
+
+            a{
+                color: white;
+                text-decoration: none;
+            }
+
+            .nav-center {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .nav-right {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                width: 500px;
+            }
+
+            #right {
+                margin: 0;
+                display: flex;
+                align-items: center;
+                width: 100%;
+            }
+
+            #searchInput {
+                padding: 8px;
+                border-radius: 20px;
+                border: none;
+                outline: none;
+                margin-right: 0;
+                width: 100%;
+            }
+
+            #searchInput::placeholder {
+                color: #017577;
+            }
+
+            #searchIcon {
+                position: absolute;
+                right: 200px;
+                color: #017577;
+                font-size: 14px;
+                pointer-events: none; /* Prevents the icon from interfering with input */
+            }
+
+            button{
+                background-color: #017577;
+                color: white;
+                padding: 8px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-left: 10px;
+                font-size: 10px;
+            }
+
+            button:hover {
+                background-color: #017577a8;
+            }
+
+            button:active {
+                background-color: #009688;
+            }
+
+            nav button{
+                
+            }
+        </style>
     </head>
     <body>
-        
+        <nav><h1>TravelBloom</h1>
+            <ul class="nav-center">
+                <li><a href="./travel_recommendation.html" id="home">Home</a></li>
+                <li><a href="#" id="about">About us</a></li>
+                <li><a href="#" id="contact">Contact Us</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li id="right">
+                    <input type="text" id="searchInput" placeholder="Enter a destination or keyword">
+                    <span id="searchIcon">&#128269;</span> <!-- Search icon -->
+                </li>
+                <li><button id="btnSearch">Search</button></li>
+                <li><button id="btnClear">Clear</button></li>
+            </ul>
+        </nav>
+        <script src="./travel_recommendation.js"></script>
     </body>
 </html>
