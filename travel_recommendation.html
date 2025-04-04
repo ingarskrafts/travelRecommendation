@@ -103,17 +103,6 @@
                 pointer-events: none; /* Prevents the icon from interfering with input */
             }
 
-            /* button{
-                background-color: #017577;
-                color: white;
-                padding: 8px 15px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                margin-left: 10px;
-                font-size: 10px;
-            } */
-
             /* Search Button */
             #btnSearch {
                 position: absolute;
@@ -147,6 +136,50 @@
             button:active {
                 background-color: #009688;
             }
+
+            body {
+                background-image: url("travel.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+
+            /* Container for the vertical bar and icons */
+            .social-bar {
+                position: fixed; /* Sticks to the left side */
+                left: 40px; /* Adjust distance from the edge */
+                top: 65%; /* Centers it vertically */
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+            }
+
+            /* Vertical Line */
+            .vertical-line {
+                width: 2px; /* Line thickness */
+                height: 200px; /* Adjust height */
+                background-color: white; /* Adjust color */
+                margin-bottom: 40px; /* Space between line and icons */
+                margin-left: 10px;
+            }
+            
+            /* Social Media Icons */
+            .icons a {
+                display: block;
+                margin-bottom: 10px; /* Space between icons */
+            }
+
+            .icons img {
+                width: 25px; /* Adjust icon size */
+                height: auto;
+                transition: transform 0.2s;
+            }
+
+            .icons img:hover {
+                transform: scale(1.2); /* Enlarge on hover */
+            }
         </style>
     </head>
     <body>
@@ -170,6 +203,17 @@
                 </li>
             </ul>
         </nav>
+
+        <div class="social-bar">
+            <div class="vertical-line"></div>
+            <div class="icons">
+                <a href="https://facebook.com" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://youtube.com" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+                <a href="https://twitter.com" target="_blank"><img src="ex.webp" alt="Twitter"></a>
+            </div>
+        </div>
+
         <script src="./travel_recommendation.js"></script>
     </body>
 </html>
