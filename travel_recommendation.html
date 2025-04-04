@@ -24,6 +24,19 @@
                 font-style: italic;
             }
 
+            /* Container for Logo and GIF */
+            .logo-container {
+                display: flex;
+                align-items: center;
+            }
+
+            /* Style for GIF */
+            .gif {
+                width: 40px;
+                height: auto;
+                margin-right: 10px;
+            }
+
             ul{
                 list-style-type: none;
                 margin: 0;
@@ -60,6 +73,14 @@
                 width: 100%;
             }
 
+            /* Search Container */
+            .search-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 100%;
+            }
+
             #searchInput {
                 padding: 8px;
                 border-radius: 20px;
@@ -67,6 +88,7 @@
                 outline: none;
                 margin-right: 0;
                 width: 100%;
+                padding-right: 90px; /* Space for buttons */
             }
 
             #searchInput::placeholder {
@@ -75,13 +97,13 @@
 
             #searchIcon {
                 position: absolute;
-                right: 200px;
+                right: 130px;
                 color: #017577;
                 font-size: 14px;
                 pointer-events: none; /* Prevents the icon from interfering with input */
             }
 
-            button{
+            /* button{
                 background-color: #017577;
                 color: white;
                 padding: 8px 15px;
@@ -89,6 +111,32 @@
                 border-radius: 5px;
                 cursor: pointer;
                 margin-left: 10px;
+                font-size: 10px;
+            } */
+
+            /* Search Button */
+            #btnSearch {
+                position: absolute;
+                right: 70px;
+                background-color: #017577;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 10px;
+            }
+
+            /* Clear Button */
+            #btnClear {
+                position: absolute;
+                right: 15px;
+                background-color: #017577;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
                 font-size: 10px;
             }
 
@@ -99,14 +147,13 @@
             button:active {
                 background-color: #009688;
             }
-
-            nav button{
-                
-            }
         </style>
     </head>
     <body>
-        <nav><h1>TravelBloom</h1>
+        <nav><div class="logo-container">
+            <img src="logo.gif" alt="Loading..." class="gif">
+            <h1>TravelBloom</h1>
+        </div>
             <ul class="nav-center">
                 <li><a href="./travel_recommendation.html" id="home">Home</a></li>
                 <li><a href="#" id="about">About us</a></li>
@@ -114,11 +161,13 @@
             </ul>
             <ul class="nav-right">
                 <li id="right">
-                    <input type="text" id="searchInput" placeholder="Enter a destination or keyword">
-                    <span id="searchIcon">&#128269;</span> <!-- Search icon -->
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Enter a destination or keyword">
+                        <span id="searchIcon">&#128269;</span> <!-- Search icon -->
+                        <button id="btnSearch">Search</button>
+                        <button id="btnClear">Clear</button>
+                    </div>
                 </li>
-                <li><button id="btnSearch">Search</button></li>
-                <li><button id="btnClear">Clear</button></li>
             </ul>
         </nav>
         <script src="./travel_recommendation.js"></script>
