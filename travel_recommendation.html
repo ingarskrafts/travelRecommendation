@@ -116,6 +116,14 @@
                 font-size: 10px;
             }
 
+            #btnSearch:hover {
+                background-color: #017577a8;
+            }
+
+            #btnSearch:active {
+                background-color: #009688;
+            }
+
             /* Clear Button */
             #btnClear {
                 position: absolute;
@@ -129,11 +137,11 @@
                 font-size: 10px;
             }
 
-            button:hover {
+            #btnClear:hover {
                 background-color: #017577a8;
             }
 
-            button:active {
+            #btnClear:active {
                 background-color: #009688;
             }
 
@@ -147,7 +155,7 @@
 
             /* Container for the vertical bar and icons */
             .social-bar {
-                position: fixed; /* Sticks to the left side */
+                position: fixed;
                 left: 40px; /* Adjust distance from the edge */
                 top: 65%; /* Centers it vertically */
                 transform: translateY(-50%);
@@ -179,6 +187,40 @@
 
             .icons img:hover {
                 transform: scale(1.2); /* Enlarge on hover */
+            }
+
+            #main {
+                position: fixed;
+                left: 90px; /* Adjust distance from the edge */
+                top: 67%; /* Centers it vertically */
+                transform: translateY(-93%);
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                width: 50%;
+            }
+
+            #main h1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+                color: azure;
+            }
+            #main div {
+                width: 40%;
+                color: azure;
+                margin-bottom: 50px;
+            }
+
+            #main button {
+                background-color: #017577;
+                color: white;
+                border: none;
+                padding: 10px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 12px;
+                font-weight: bold;
+                width: 100px;
             }
         </style>
     </head>
@@ -212,6 +254,13 @@
                 <a href="https://youtube.com" target="_blank"><img src="youtube.png" alt="YouTube"></a>
                 <a href="https://twitter.com" target="_blank"><img src="ex.webp" alt="Twitter"></a>
             </div>
+        </div>
+
+        <div id="main">
+            <h1>EXPLORE DREAM DESTINATION</h1>
+            <div>It encourages exploration of unfamiliar territories, embracing diverse cultures and landscapes, while pursuing the desired destination that captivates the heart and igintes a sense of wonder.
+            </div>
+            <button>BOOK NOW</button>
         </div>
 
         <script src="./travel_recommendation.js"></script>
