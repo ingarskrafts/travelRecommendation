@@ -116,38 +116,24 @@
                 top: 50%; /* Centers it vertically */
                 transform: translateY(-60%);
                 display: flex;
-                flex-direction: column;
                 align-items: left;
                 width: 100%;
+                color: azure;
             }
 
             #main h1 {
                 font-size: 3rem;
                 margin-bottom: 20px;
-                color: azure;
-            }
-            #description {
-                width: 60%;
-                color: azure;
-                margin-bottom: 50px;
-                padding: 10px;
-                border-radius: 5px;
-                background-color: RGB(0, 0, 50, 0.4);
             }
 
-            #team {
+            /* #contact {
                 width: 60%;
                 color: azure;
                 display: flex;
                 justify-content: center;
-            }
+            } */
 
-            #team h2 {
-                margin-right: 50px;
-                font-size: 3rem;
-            }
-
-            .team-member {
+            #contactForm {
                 width: 20%;
                 color: azure;
                 margin-left: 10px;
@@ -156,7 +142,7 @@
                 background-color: RGB(0, 0, 50, 0.4);
             }
 
-            .memberbtn {
+            #submitbtn {
                 background-color: RGB(0, 0, 50, 0.7);
                 color: white;
                 border: none;
@@ -194,33 +180,14 @@
             </div>
         </div>
 
-        <div id="main">
-            <h1>ABOUT US</h1>
-            <div id="description">
-                Welcome to Our Company! We are a team of passionate individuals dedicated to providing excellent services/products to our customers.
-                Our mission is to <strong>provide the best experience</strong> for people traveling to different destinations around the world.
-                Our values include integrity, innovation, customer satisfaction and teamwork.
-                We believe in <strong>putting our customers first</strong> and <strong>working together</strong> to achieve our goals.
-                Feel free to explore our website to learn more about what we offer!
-            </div>
-            <div id="team">
-                <h2>Our Team</h2>
-                <div class="team-member">
-                    <p><b>John Doe</b></p>
-                    <p>John is responsible for...</p>
-                    <button class="memberbtn">CEO</button>
-                </div>
-                <div class="team-member">
-                    <p><b>Celina Thomas</b></p>
-                    <p>Celina Thomas is responsible for...</p>
-                    <button class="memberbtn">Team Lead</button>
-                </div>
-                <div class="team-member">
-                    <p><b>Mike Tysen</b></p>
-                    <p>Mike Tysen is responsible for...</p>
-                    <button class="memberbtn">Delivery Head</button>
-                </div>
-            </div>
+        <div id="main"><h1>CONTACT US</h1>
+            <form id="contactForm" novalidate>
+                <label for="name"></label><br>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <input type="email" id="email" name="email" placeholder="Enter yout email" required>
+                <textarea id="message" name="message" placeholder="Leave your message" required></textarea>
+                <button id="submitbtn">Submit</button>
+            </form>
         </div>
 
         <script src="./travel_recommendation.js"></script>
