@@ -124,22 +124,34 @@
             #main h1 {
                 font-size: 3rem;
                 margin-bottom: 20px;
+                margin-right: 50px;
             }
 
-            /* #contact {
-                width: 60%;
+            #main p {
                 color: azure;
-                display: flex;
-                justify-content: center;
-            } */
+                position: absolute;
+                top: 150px;
+                left: 100px;
+            }
 
             #contactForm {
-                width: 20%;
+                width: 40%;
                 color: azure;
                 margin-left: 10px;
                 padding: 10px;
                 border-radius: 5px;
                 background-color: RGB(0, 0, 50, 0.4);
+            }
+
+            .input {
+                display: block;
+                width: 100%;
+                border-radius: 5px;
+                padding: 5px;
+                border: 1px solid #333;
+                background: transparent;
+                box-shadow: none;
+                outline: none;
             }
 
             #submitbtn {
@@ -182,12 +194,15 @@
 
         <div id="main"><h1>CONTACT US</h1>
             <form id="contactForm" novalidate>
-                <label for="name"></label><br>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                <input type="email" id="email" name="email" placeholder="Enter yout email" required>
-                <textarea id="message" name="message" placeholder="Leave your message" required></textarea>
+                <label for="name">Name</label><br>
+                <input type="text" class="input" name="name" placeholder="Enter your name" required><br>
+                <label for="email">Email</label><br>
+                <input type="email" class="input" name="email" placeholder="Enter yout email" required><br>
+                <label for="message">Message</label><br>
+                <textarea class="input" name="message" rows="5" placeholder="Leave your message" required></textarea>
                 <button id="submitbtn">Submit</button>
             </form>
+            <p>Get in touch</p>
         </div>
 
         <script src="./travel_recommendation.js"></script>
