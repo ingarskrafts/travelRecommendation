@@ -23,17 +23,17 @@ fetch('travel_recommendation_api.json')
           // Display Temples
           console.log('Temples:');
           data.temples.forEach(temple => {
-            console.log('Temple: ${temple.name}');
-            console.log('Image: ${temple.imageUrl}');
-            console.log('Description: ${temple.description}');
+            console.log(`Temple: ${temple.name}`);
+            console.log(`Image: ${temple.imageUrl}`);
+            console.log(`Description: ${temple.description}`);
           });
 
           // Display Beaches
           console.log('Beaches:');
           data.beaches.forEach(beach => {
-            console.log('Beach: ${beach.name}');
-            console.log('Image: ${beach.imageUrl}');
-            console.log('Description: ${beach.description}');
+            console.log(`Beach: ${beach.name}`);
+            console.log(`Image: ${beach.imageUrl}`);
+            console.log(`Description: ${beach.description}`);
           });
     })
     .catch(error => {
