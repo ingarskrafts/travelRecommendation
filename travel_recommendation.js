@@ -19,4 +19,12 @@ fetch('travel_recommendation_api.json')
               console.log(`Description: ${city.description}`);
             });
           });
+
+          // Display Temples
+          console.log('Temples:');
+          data.temples.forEach(temple => {
+            console.log('Temple: ${temple.name}');
+            console.log('Image: ${temple.imageUrl}');
+            console.log('Description: ${temple.description}');
+          });
     })
