@@ -40,3 +40,33 @@ fetch('travel_recommendation_api.json')
         console.error('Error fetching travel data:', error);
     });
     
+    // Keywords for matching
+    const keywordGroups = {
+        beach: ['beach', 'beaches'],
+        temple: ['temple', 'temples'],
+        country: ['temples', 'japan', 'brazil']
+    };
+
+    // Function to check if the keyword matches any group
+    function getCategoryFromKeyword(keyword) {
+        const lowerKeyword = keyword.toLowerCase();
+        for (let category in keywordGroups) {
+            if (keywordGroups[category].includes(lowerKeyword)) {
+                return category;
+            }
+        }
+        return null;
+    }
+
+    // Result display section
+    const resultsContainer = document.createElement('div');
+    resultsContainer.id = 'searchResults';
+    resultsContainer.style.background = 'rgba(255,255,255,0.8)';
+    resultsContainer.style.margin = '20px auto';
+    resultsContainer.style.padding = '20px';
+    resultsContainer.style.borderRadius = '10px';
+    resultsContainer.style.width = '60%';
+    resultsContainer.style.color = '#000';
+    document.body.appendChild(resultsContainer);
+
+    
