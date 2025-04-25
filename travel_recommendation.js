@@ -69,4 +69,19 @@ fetch('travel_recommendation_api.json')
     resultsContainer.style.color = '#000';
     document.body.appendChild(resultsContainer);
 
-    
+    // Search button event listener
+    document.getElementById('btnSearch').addEventListener('click', () => {
+        const input = document.getElementById('searchInput').value.trim().toLowerCase();
+        resultsContainer.innerHTML = ''; // Clear previous results
+
+        if (!input) return;
+
+        const category = getCategoryFromKeyword(input);
+
+        if (category === 'beach') {
+            data.beaches.forEach(beach => {
+                displayResult(beach.name, beach.imageUrl, beach.description);
+            });
+            
+        }
+    })
