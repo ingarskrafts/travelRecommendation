@@ -82,6 +82,20 @@ fetch('travel_recommendation_api.json')
             data.beaches.forEach(beach => {
                 displayResult(beach.name, beach.imageUrl, beach.description);
             });
-            
+        } else if (category === 'temple') {
+            data.temples.forEach(temple => {
+                displayResult(temple.name, temple.imageUrl, temple.description);
+            });
+        } else if (category === 'country') {
+            data.countries.forEach(country => {
+                if (input.includes(country.name.toLowerCase())) {
+                    country.cities.forEach(city => {
+                        displayResult(city.name, city.imageUrl, city.description);
+                    });
+                }
+            });
+        } else {
+            resultsContainer.innerHTML = `<p>No results found. Try "beach", "temple", or a country name.</p>`;
         }
-    })
+    });
+    
