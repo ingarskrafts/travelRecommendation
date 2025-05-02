@@ -61,6 +61,7 @@ fetch('travel_recommendation_api.json')
 
     // Result display section
     const resultsContainer = document.createElement('div');
+    resultsContainer.style.display = 'none';
     resultsContainer.id = 'searchResults';
     resultsContainer.style.position = 'fixed';
     resultsContainer.style.top = '100px'; // Adjust as needed
@@ -72,7 +73,7 @@ fetch('travel_recommendation_api.json')
     resultsContainer.style.background = 'rgba(255,255,255, 0.9)';
     resultsContainer.style.padding = '20px';
     resultsContainer.style.borderRadius = '10px';
-    resultsContainer.style.color = '#000';
+    resultsContainer.style.color = '#017577';
     resultsContainer.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
     document.body.appendChild(resultsContainer);
 
@@ -102,6 +103,7 @@ fetch('travel_recommendation_api.json')
                 }
             });
         } else {
+            resultsContainer.style.display = 'block';
             resultsContainer.innerHTML = `<p>No results found. Try "beach", "temple", or a country name.</p>`;
         }
     });
@@ -110,10 +112,12 @@ fetch('travel_recommendation_api.json')
     document.getElementById('btnClear').addEventListener('click', () => {
         document.getElementById('searchInput').value = '';
         resultsContainer.innerHTML = '';
+        resultsContainer.style.display = 'none';
     });
 
     // Helper to display result
     function displayResult(title, img, description) {
+        resultsContainer.style.display = 'block';
         const item = document.createElement('div');
         item.style.marginBottom = '20px';
         item.innerHTML = `
