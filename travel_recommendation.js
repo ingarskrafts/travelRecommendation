@@ -7,11 +7,12 @@ fetch('travel_recommendation_api.json')
         return response.json();
     })
     .then(data => {
+        travelData = data;
         console.log('Fetched Travel Data:', data);
 
         // Display Countries
         console.log('Countries');
-        data.countries.forEach(country => {
+        travelData.countries.forEach(country => {
             console.log(`Country: ${country.name}`);
             country.cities.forEach(city => {
               console.log(`City: ${city.name}`);
@@ -22,7 +23,7 @@ fetch('travel_recommendation_api.json')
 
           // Display Temples
           console.log('Temples:');
-          data.temples.forEach(temple => {
+          travelData.temples.forEach(temple => {
             console.log(`Temple: ${temple.name}`);
             console.log(`Image: ${temple.imageUrl}`);
             console.log(`Description: ${temple.description}`);
@@ -30,7 +31,7 @@ fetch('travel_recommendation_api.json')
 
           // Display Beaches
           console.log('Beaches:');
-          data.beaches.forEach(beach => {
+          travelData.beaches.forEach(beach => {
             console.log(`Beach: ${beach.name}`);
             console.log(`Image: ${beach.imageUrl}`);
             console.log(`Description: ${beach.description}`);
@@ -44,7 +45,7 @@ fetch('travel_recommendation_api.json')
     const keywordGroups = {
         beach: ['beach', 'beaches'],
         temple: ['temple', 'temples'],
-        country: ['temples', 'japan', 'brazil']
+        country: ['australia', 'japan', 'brazil']
     };
 
     // Function to check if the keyword matches any group
@@ -61,12 +62,18 @@ fetch('travel_recommendation_api.json')
     // Result display section
     const resultsContainer = document.createElement('div');
     resultsContainer.id = 'searchResults';
-    resultsContainer.style.background = 'rgba(255,255,255,0.8)';
-    resultsContainer.style.margin = '20px auto';
+    resultsContainer.style.position = 'fixed';
+    resultsContainer.style.top = '100px'; // Adjust as needed
+    resultsContainer.style.right = '30px'; // Distance from right edge
+    resultsContainer.style.width = '50%';
+    resultsContainer.style.maxWidth = '600px';
+    resultsContainer.style.maxHeight = '80vh';
+    resultsContainer.style.overflowY = 'auto';
+    resultsContainer.style.background = 'rgba(255,255,255, 0.9)';
     resultsContainer.style.padding = '20px';
     resultsContainer.style.borderRadius = '10px';
-    resultsContainer.style.width = '60%';
     resultsContainer.style.color = '#000';
+    resultsContainer.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
     document.body.appendChild(resultsContainer);
 
     // Search button event listener
@@ -74,20 +81,20 @@ fetch('travel_recommendation_api.json')
         const input = document.getElementById('searchInput').value.trim().toLowerCase();
         resultsContainer.innerHTML = ''; // Clear previous results
 
-        if (!input) return;
+        if (!input || !travelData) return;
 
         const category = getCategoryFromKeyword(input);
 
         if (category === 'beach') {
-            data.beaches.forEach(beach => {
+            travelData.beaches.forEach(beach => {
                 displayResult(beach.name, beach.imageUrl, beach.description);
             });
         } else if (category === 'temple') {
-            data.temples.forEach(temple => {
+            travelData.temples.forEach(temple => {
                 displayResult(temple.name, temple.imageUrl, temple.description);
             });
         } else if (category === 'country') {
-            data.countries.forEach(country => {
+            travelData.countries.forEach(country => {
                 if (input.includes(country.name.toLowerCase())) {
                     country.cities.forEach(city => {
                         displayResult(city.name, city.imageUrl, city.description);
@@ -116,4 +123,3 @@ fetch('travel_recommendation_api.json')
             `;
             resultsContainer.appendChild(item);
     }
-    
