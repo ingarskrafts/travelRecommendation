@@ -99,3 +99,21 @@ fetch('travel_recommendation_api.json')
         }
     });
     
+    // Clear button event listener
+    document.getElementById('btnClear').addEventListener('click', () => {
+        document.getElementById('searchInput').value = '';
+        resultsContainer.innerHTML = '';
+    });
+
+    // Helper to display result
+    function displayResult(title, img, description) {
+        const item = document.createElement('div');
+        item.style.marginBottom = '20px';
+        item.innerHTML = `
+            <h3>${title}</h3>
+            <img src="${img}" alt="${title}" style="width:100%; max-width:400px; border-radius:10px;"/>
+            <p>${description}</p>
+            `;
+            resultsContainer.appendChild(item);
+    }
+    
