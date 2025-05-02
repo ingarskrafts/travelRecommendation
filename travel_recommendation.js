@@ -102,6 +102,10 @@ fetch('travel_recommendation_api.json')
                     });
                 }
             });
+        } else if (input.includes('country') || input.includes('countries')) {
+            travelData.countries.forEach(country => {
+                displayCountries(country.name);
+                    });
         } else {
             resultsContainer.style.display = 'block';
             resultsContainer.innerHTML = `<p>No results found. Try "beach", "temple", or a country name.</p>`;
@@ -124,6 +128,18 @@ fetch('travel_recommendation_api.json')
             <h3>${title}</h3>
             <img src="${img}" alt="${title}" style="width:100%; max-width:400px; border-radius:10px;"/>
             <p>${description}</p>
+            <button id="btnVisit" style="background-color: #017577; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 10px; margin-top: 10px;">Visit</button>
+            `;
+            resultsContainer.appendChild(item);
+    }
+
+    function displayCountries(title) {
+        resultsContainer.style.display = 'block';
+        const item = document.createElement('div');
+        item.style.marginBottom = '20px';
+        item.innerHTML = `
+            <h3>${title}</h3>
+            <button id="btnVisit" style="background-color: #017577; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 10px; margin-top: 10px;">Visit</button>
             `;
             resultsContainer.appendChild(item);
     }
