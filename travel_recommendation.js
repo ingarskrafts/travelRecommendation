@@ -119,13 +119,39 @@ fetch('travel_recommendation_api.json')
         resultsContainer.style.display = 'none';
     });
 
+    // Adding a country-to-timezone mapping
+    const countryTimeZones = {
+        "Australia": "Australia/Sydney",
+        "Japan": "Asia/Tokyo",
+        "Brazil": "America/Sao_Paulo"
+    };
+
+    function getCurrentTimeForCountry(countryName) {
+        const timeZone = countryTimeZones[countryName];
+        if (!timeZone) return 'Time zone not available';
+        
+        const options = { timeZone: timeZone, hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        return new Date().toLocaleTimeString('en-US', options);
+    }
+    
+
     // Helper to display result
     function displayResult(title, img, description) {
         resultsContainer.style.display = 'block';
+
+        // Try to get the country name from the title (e.g., "Tokyo, Japan")
+        let countryName = null;
+        if (title.includes(',')) {
+            countryName = title.split(',')[1].trim();
+        }
+
+        const currentTime = countryName ? getCurrentTimeForCountry(countryName) : 'Time not available';
+
         const item = document.createElement('div');
         item.style.marginBottom = '20px';
         item.innerHTML = `
             <h3>${title}</h3>
+            <p><strong>Current Local Time:</strong> ${currentTime}</p>
             <img src="${img}" alt="${title}" style="width:100%; max-width:400px; border-radius:10px;"/>
             <p>${description}</p>
             <button id="btnVisit" style="background-color: #017577; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 10px; margin-top: 10px;">Visit</button>
@@ -135,10 +161,18 @@ fetch('travel_recommendation_api.json')
 
     function displayCountries(title) {
         resultsContainer.style.display = 'block';
+
+        // Try to get the country name from the title (e.g., "Tokyo, Japan")
+        let countryName = null;            
+        countryName = title.trim();
+
+        const currentTime = countryName ? getCurrentTimeForCountry(countryName) : 'Time not available';
+
         const item = document.createElement('div');
         item.style.marginBottom = '20px';
         item.innerHTML = `
             <h3>${title}</h3>
+            <p><strong>Current Local Time:</strong> ${currentTime}</p>
             <button id="btnVisit" style="background-color: #017577; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 10px; margin-top: 10px;">Visit</button>
             `;
             resultsContainer.appendChild(item);
